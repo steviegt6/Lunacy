@@ -1,0 +1,1 @@
+﻿Reimplementation of Jiiks' asynchronous ASAR library (https://github.com/Jiiks/asar.net).
