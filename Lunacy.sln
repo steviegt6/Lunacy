@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lunacy", "Lunacy\Lunacy.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lunacy.ASAR", "Lunacy.ASAR\Lunacy.ASAR.csproj", "{73640370-E683-4E33-93B7-EB5D6747EED4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiffPatch", "DiffPatch\DiffPatch.csproj", "{2D49AA11-A737-4D1D-9F0F-A457F157545A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lunacy.Patch", "Lunacy.Patch\Lunacy.Patch.csproj", "{FFE1B1D4-FF33-4FFA-8753-9D5BEAC055E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{73640370-E683-4E33-93B7-EB5D6747EED4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73640370-E683-4E33-93B7-EB5D6747EED4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73640370-E683-4E33-93B7-EB5D6747EED4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D49AA11-A737-4D1D-9F0F-A457F157545A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D49AA11-A737-4D1D-9F0F-A457F157545A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D49AA11-A737-4D1D-9F0F-A457F157545A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D49AA11-A737-4D1D-9F0F-A457F157545A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFE1B1D4-FF33-4FFA-8753-9D5BEAC055E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFE1B1D4-FF33-4FFA-8753-9D5BEAC055E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFE1B1D4-FF33-4FFA-8753-9D5BEAC055E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFE1B1D4-FF33-4FFA-8753-9D5BEAC055E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
