@@ -60,19 +60,11 @@
        null != oe && (at.push("--server"), at.push(oe.ip));
        const st = { programArgs: at, allocatedMemoryMb: ot };
        switch (se) {
-@@ -14467,13 +14477,20 @@
+@@ -14474,6 +14484,13 @@
                },
              },
              {
--              name: "Settings",
-+              name: "Launcher Settings",
-               onClick: () => {
-                 this.setState({ activeTab: "Settings" }),
-                   Ye.pageview("/settings").send();
-               },
-             },
-             {
-+              name: "Lunacy Settings",
++              name: "Lunacy",
 +              onClick: () => {
 +                this.setState({activeTab: "LunacySettings" }),
 +                  Ye.pageview("/lunacysettings").send();
