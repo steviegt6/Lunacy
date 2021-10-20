@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -9,6 +10,12 @@ public static class Program
     public static string SrcCopy => "original";
 
     public static string Patched => Path.Combine("client", "resources", "app");
+
+    public static readonly string[] FormattableJs =
+    {
+        Path.Combine("client", "resources", "app", "main.js"),
+        Path.Combine("client", "resources", "app", "renderer.js")
+    };
 
     /* LunarClient Electron app folder structure:
      *  lunarclient (base)
@@ -102,6 +109,14 @@ public static class Program
             "-d", Patched
         });
 
+        // TODO: Currently, this doesn't work. Might make my own package.
+        Console.WriteLine("Nice-ifying with JSNice...");
+        foreach (string js in FormattableJs)
+            await NiceifyJS(js);
+
+        Console.WriteLine("Formatting with prettier...");
+        await FormatPrettier();
+
         Console.WriteLine("Creating copy in root repository...");
         CopyDirectory(Path.Combine("client", "resources", "app"), "original");
 
@@ -134,4 +149,37 @@ public static class Program
         !Console.IsInputRedirected
             ? Console.ReadKey(true).KeyChar
             : (Console.ReadLine() ?? throw new Exception("Invalid input."))[0];
+
+    private static async Task NiceifyJS(string path) => await StartProcess("jsnice " + path);
+
+    private static async Task FormatPrettier() => await StartProcess("prettier --write client/");
+
+    public static async Task StartProcess(string args)
+    {
+        Process process = new();
+
+        if (OperatingSystem.IsWindows())
+        {
+            process.StartInfo = new ProcessStartInfo
+            {
+                FileName = "cmd.exe",
+                Arguments = "/C " + args,
+                UseShellExecute = false
+            };
+        }
+        else if (OperatingSystem.IsLinux() || OperatingSystem.IsMacOS())
+        {
+            process.StartInfo = new ProcessStartInfo
+            {
+                FileName = "bash",
+                Arguments = "-c \" " + args + " \"",
+                UseShellExecute = false
+            };
+        }
+        else
+            throw new PlatformNotSupportedException("Unsupported operating system for command line.");
+
+        process.Start();
+        await process.WaitForExitAsync();
+    }
 }

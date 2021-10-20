@@ -26,6 +26,10 @@ if NOT ["%errorlevel%"]==["0"] (
     exit /b %errorlevel%
 )
 
+echo installing jsnice and prettier
+npm i -g jsnice
+npm i -g prettier
+
 echo building Lunacy.Path
 dotnet build Lunacy.Patch/Lunacy.Patch.csproj --configuration Debug
 

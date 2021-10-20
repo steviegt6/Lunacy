@@ -3,3 +3,6 @@ bin/
 obj/
 client/
 original/
+node_modules/
+package.json
+package-lock.json
