@@ -8,8 +8,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DiffPatch\DiffPatch.csproj" />
+    <ProjectReference Include="..\Assatur\Tools\ModdingToolkit\ModdingToolkit.csproj" />
     <ProjectReference Include="..\Lunacy\Lunacy.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DiffPatch">
+      <HintPath>..\Assatur\Libs\DiffPatch.dll</HintPath>
+    </Reference>
+    <Reference Include="Webmilio.Commons">
+      <HintPath>..\Assatur\Libs\Webmilio.Commons.dll</HintPath>
+    </Reference>
+    <Reference Include="Webmilio.Commons.Console">
+      <HintPath>..\Assatur\Libs\Webmilio.Commons.Console.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

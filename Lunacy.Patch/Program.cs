@@ -6,6 +6,10 @@ namespace Lunacy.Patch;
 
 public static class Program
 {
+    public static string SrcCopy => "original";
+
+    public static string Patched => Path.Combine("client", "resources", "app");
+
     /* LunarClient Electron app folder structure:
      *  lunarclient (base)
      *  >/resources
@@ -16,7 +20,60 @@ public static class Program
      */
     public static async Task Main()
     {
-        Console.WriteLine("Welcome to the Lunacy developer tool setup.");
+        Console.WriteLine("Welcome to the Lunacy developer tool.");
+
+        Console.WriteLine(
+            "Press 'c' to continue to the developer setup, 'p' to apply patches, 'd' to diff patches, or 'e' to exit"
+        );
+
+        char key = ReadInput();
+
+        switch (char.ToLower(key))
+        {
+            case 'c':
+                await PromptSetup();
+                break;
+
+            case 'p':
+                await DoPatch();
+                break;
+
+            case 'd':
+                await DoDiff();
+                break;
+
+            case 'e':
+                break;
+        }
+    }
+
+    private static async Task DoPatch()
+    {
+        Directory.CreateDirectory("Patches");
+
+        await new LunacyDiffer().DiffFolders(
+            new DirectoryInfo(SrcCopy),
+            new DirectoryInfo(Patched),
+            new DirectoryInfo("Patches")
+        );
+
+        await Main();
+    }
+
+    private static async Task DoDiff()
+    {
+        Directory.CreateDirectory("Patches");
+
+        await new LunacyPatcher().Patch(
+            new DirectoryInfo("Patches"),
+            new DirectoryInfo("Patched")
+        );
+
+        await Main();
+    }
+
+    private static async Task PromptSetup()
+    {
         Console.WriteLine("Please input the base path of your Lunar Client installation:");
         string? basePath = Console.ReadLine();
 
@@ -42,11 +99,13 @@ public static class Program
         {
             "asar-unpack",
             "-p", Path.Combine("client", "resources", "app.asar"),
-            "-d", Path.Combine("client", "resources", "app")
+            "-d", Patched
         });
 
-        Console.WriteLine("Press any key to exit...");
-        Console.ReadKey(true);
+        Console.WriteLine("Creating copy in root repository...");
+        CopyDirectory(Path.Combine("client", "resources", "app"), "original");
+
+        await Main();
     }
 
     // Recursively copy directory files
@@ -70,4 +129,9 @@ public static class Program
             CopyDirectory(subDirectory.FullName, tempPath);
         }
     }
+
+    public static char ReadInput() =>
+        !Console.IsInputRedirected
+            ? Console.ReadKey(true).KeyChar
+            : (Console.ReadLine() ?? throw new Exception("Invalid input."))[0];
 }
