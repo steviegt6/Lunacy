@@ -12,3 +12,12 @@
  
  /*!
   * animate.css -https://daneden.github.io/animate.css/
+@@ -19871,7 +19872,7 @@
+ }
+ .navbar > .container-fluid > #navbar-links > a {
+   min-width: 90px;
+-  margin: 0px 5px;
++  margin: 0px 2px;
+   padding: 0px 20px;
+   height: 40px;
+   border-radius: 0;

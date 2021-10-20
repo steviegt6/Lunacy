@@ -4,6 +4,24 @@
  /*! For license information please see renderer.js.LICENSE.txt */
  module.exports = (function (oe) {
    var se = {};
+@@ -11882,7 +11884,7 @@
+               ke.createElement("img", {
+                 draggable: !1,
+                 src: this.props.images.logo,
+-                alt: "logo",
++                alt: "logo"
+               }),
+               this.props.images.logoOverlay &&
+                 ke.createElement("img", {
+@@ -11890,7 +11892,7 @@
+                   draggable: !1,
+                   src: this.props.images.logoOverlay,
+                 }),
+-              ke.createElement("h2", null, "Lunar Client")
++              ke.createElement("h2", null, "Lunacy")
+             ),
+             ke.createElement(
+               "div",
 @@ -12329,6 +12331,8 @@
          }
        };
