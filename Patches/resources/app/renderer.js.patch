@@ -1,0 +1,93 @@
+@@ -1,3 +1,5 @@
++const lunacy = require("./lunacy.js")
++
+ /*! For license information please see renderer.js.LICENSE.txt */
+ module.exports = (function (oe) {
+   var se = {};
+@@ -12329,6 +12331,8 @@
+         }
+       };
+     async function downloadTextures(oe, se, _e, ke) {
++      if (!lunacy.areTexturesEnabled())
++        return;
+       ct.a.info("[TEXTURES] Starting textures check"),
+         await Fe.promises.mkdir(ot, { recursive: !0 }),
+         await Fe.promises.mkdir(it, { recursive: !0 });
+@@ -12360,6 +12364,8 @@
+         ct.a.info("[TEXTURES] Done textures check");
+     }
+     async function downloadMissingFiles(oe, se, _e) {
++      if (!lunacy.areTexturesEnabled())
++        return;
+       const ke = [];
+       for (const _e of oe.split("\n")) {
+         const [oe, Te] = _e.split(" "),
+@@ -12369,6 +12375,8 @@
+       await bulkDownloadFiles("textures", 20, ke, _e);
+     }
+     async function deleteUnreferencedFiles(oe) {
++      if (!lunacy.areTexturesEnabled())
++        return;
+       var se, _e;
+       const ke = new Set();
+       for (const se of oe.split("\n")) {
+@@ -12504,7 +12512,7 @@
+                 ),
+                 Te.error(
+                   "Memory-related launch fail",
+-                  "Your client failed to allocate enough memory to start. Consider reducing Allocated Memory in the Settings tab, or closing other applications on your computer."
++                  "Your client failed to allocate enough memory to start. Consider reducing Allocated Memory in the Launcher Settings tab, or closing other applications on your computer."
+                 ))
+               : ke
+               ? (ct.a.info(
+@@ -12586,8 +12594,6 @@
+           "{}",
+           "--gameDir",
+           nt,
+-          "--texturesDir",
+-          it,
+           "--launcherVersion",
+           Xe,
+           "--hwid",
+@@ -12597,6 +12603,10 @@
+           "--height",
+           tt.toString(),
+         ];
++      if (lunacy.areTexturesEnabled()) {
++        at.push("--texturesDir");
++        at.push(it);
++      }
+       null != oe && (at.push("--server"), at.push(oe.ip));
+       const st = { programArgs: at, allocatedMemoryMb: ot };
+       switch (se) {
+@@ -14467,13 +14477,20 @@
+               },
+             },
+             {
+-              name: "Settings",
++              name: "Launcher Settings",
+               onClick: () => {
+                 this.setState({ activeTab: "Settings" }),
+                   Ye.pageview("/settings").send();
+               },
+             },
+             {
++              name: "Lunacy Settings",
++              onClick: () => {
++                this.setState({activeTab: "LunacySettings" }),
++                  Ye.pageview("/lunacysettings").send();
++              },
++            },
++            {
+               name: "About",
+               onClick: () => {
+                 this.setState({ activeTab: "About" }),
+@@ -14506,6 +14523,8 @@
+             break;
+           case "Settings":
+             _e = ke.createElement(SettingsPage_SettingsPage, null);
++            break;
++          case "LunacySettings":
+             break;
+           case "About":
+             _e = ke.createElement(AboutPage_AboutPage, null);

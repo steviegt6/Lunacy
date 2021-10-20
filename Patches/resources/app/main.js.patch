@@ -1,0 +1,18 @@
+@@ -160,7 +160,7 @@
+         });
+         e.on("close", () => e.removeAllListeners()),
+           e.webContents.on("devtools-opened", () =>
+-            e.webContents.closeDevTools()
++            console.log("dev tools opened")
+           ),
+           e.loadURL(
+             Object(s.format)({
+@@ -186,7 +186,7 @@
+               t.devTools
+                 ? n.webContents.openDevTools()
+                 : n.webContents.on("devtools-opened", () =>
+-                    n.webContents.closeDevTools()
++                    console.log("dev tools opened")
+                   ),
+                 n.webContents.addListener("will-redirect", (e, r) => {
+                   r.startsWith(t.targetUrlPrefix) && ((a = r), n.close());
