@@ -78,7 +78,49 @@
        null != oe && (at.push("--server"), at.push(oe.ip));
        const st = { programArgs: at, allocatedMemoryMb: ot };
        switch (se) {
-@@ -14474,6 +14484,13 @@
+@@ -14168,13 +14178,18 @@
+           { className: "col-12 card" },
+           ke.createElement(
+             "h1",
+-            { className: "mb-3" },
++            { className: "mb-3quart" },
+             ke.createElement("i", {
+               className: "fas fa-external-link-alt mr-1",
+             }),
+             "QUICK LINKS"
+           ),
+           ke.createElement(
++            "p",
++            { className: "mb-3quart" },
++            "These will open windows in your browser."
++          ),
++          ke.createElement(
+             "div",
+             { id: "quick-links" },
+             ke.createElement(QuickLink_QuickLink, {
+@@ -14259,7 +14274,20 @@
+                         ke.createElement(LogsFolderCard_LogsFolderCard, null)
+                       )
+                     ),
++                    ke.createElement(
++                      "div",
++                      { className: "row my-3" },
++                      ke.createElement(
++                        "div",
++                        { className: "col-twothirds" },
+-                    ke.createElement(QuickLinksCard_QuickLinksCard, null)
++                        ke.createElement(QuickLinksCard_QuickLinksCard, null)
++                      ),
++                      ke.createElement(
++                        "div",
++                        { className: "col-4" },
++                        ke.createElement(lunacy.createVersionCard(ke), null)
++                      )
++                    )
+                   )
+                 )
+               )
+@@ -14474,6 +14502,13 @@
                },
              },
              {
@@ -92,7 +134,7 @@
                name: "About",
                onClick: () => {
                  this.setState({ activeTab: "About" }),
-@@ -14506,6 +14523,8 @@
+@@ -14506,6 +14541,8 @@
              break;
            case "Settings":
              _e = ke.createElement(SettingsPage_SettingsPage, null);
