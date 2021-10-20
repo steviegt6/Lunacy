@@ -8,6 +8,10 @@ if NOT ["%errorlevel%"] == ["0"] (
     exit /b %errorlevel%
 )
 
+echo installing jsnice and prettier
+call npm i -g jsnice
+call npm i -g prettier
+
 echo Restoring git submodules
 
 git submodule update --init --recursive
@@ -25,10 +29,6 @@ if NOT ["%errorlevel%"]==["0"] (
     pause
     exit /b %errorlevel%
 )
-
-echo installing jsnice and prettier
-npm i -g jsnice
-npm i -g prettier
 
 echo building Lunacy.Path
 dotnet build Lunacy.Patch/Lunacy.Patch.csproj --configuration Debug

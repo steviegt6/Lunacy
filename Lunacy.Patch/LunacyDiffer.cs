@@ -63,7 +63,7 @@ public class LunacyDiffer : IDiffer
         {
             string n = StripPath(i, root.FullName);
 
-            if (n.StartsWith('.') || n.StartsWith("bin") || n.StartsWith("obj"))
+            if (n.StartsWith('.') || n.StartsWith("bin") || n.StartsWith("obj") || n.StartsWith("node_modules"))
                 return;
 
             items.Add(n);

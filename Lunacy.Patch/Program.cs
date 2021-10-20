@@ -9,7 +9,7 @@ public static class Program
 {
     public static string SrcCopy => "original";
 
-    public static string Patched => Path.Combine("client", "resources", "app");
+    public static string Patched => "client";
 
     public static readonly string[] FormattableJs =
     {
@@ -58,10 +58,9 @@ public static class Program
     {
         Directory.CreateDirectory("Patches");
 
-        await new LunacyDiffer().DiffFolders(
-            new DirectoryInfo(SrcCopy),
-            new DirectoryInfo(Patched),
-            new DirectoryInfo("Patches")
+        await new LunacyPatcher().Patch(
+            new DirectoryInfo(Path.GetFullPath("Patches")),
+            new DirectoryInfo(Path.GetFullPath(Patched))
         );
 
         await Main();
@@ -71,9 +70,10 @@ public static class Program
     {
         Directory.CreateDirectory("Patches");
 
-        await new LunacyPatcher().Patch(
-            new DirectoryInfo("Patches"),
-            new DirectoryInfo("Patched")
+        await new LunacyDiffer().DiffFolders(
+            new DirectoryInfo(Path.GetFullPath(SrcCopy)),
+            new DirectoryInfo(Path.GetFullPath(Patched)),
+            new DirectoryInfo(Path.GetFullPath("Patches"))
         );
 
         await Main();
@@ -105,8 +105,8 @@ public static class Program
         await Lunacy.Program.Main(new[]
         {
             "asar-unpack",
-            "-p", Path.Combine("client", "resources", "app.asar"),
-            "-d", Patched
+            "-p", Path.GetFullPath(Path.Combine("client", "resources", "app.asar")),
+            "-d", Path.GetFullPath(Path.Combine("client", "resources", "app"))
         });
 
         // TODO: Currently, this doesn't work. Might make my own package.
@@ -118,7 +118,7 @@ public static class Program
         await FormatPrettier();
 
         Console.WriteLine("Creating copy in root repository...");
-        CopyDirectory(Path.Combine("client", "resources", "app"), "original");
+        CopyDirectory(Path.Combine("client"), "original");
 
         await Main();
     }
