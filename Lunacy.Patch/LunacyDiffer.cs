@@ -22,7 +22,7 @@ public class LunacyDiffer : IDiffer
 
     // Currently only checks file extensions
     // TODO: Make this not suck?
-    public readonly List<string> FilesToIgnoreDiff = new() { ".dll" };
+    public readonly List<string> FilesToIgnoreDiff = new() { ".dll", ".pak", ".dat", ".map", ".exe", ".ico" };
 
     public async Task DiffFolders(DirectoryInfo origin, DirectoryInfo updated, DirectoryInfo patches)
     {
@@ -63,7 +63,7 @@ public class LunacyDiffer : IDiffer
         {
             string n = StripPath(i, root.FullName);
 
-            if (n.StartsWith('.') || n.StartsWith("bin") || n.StartsWith("obj") || n.StartsWith("node_modules"))
+            if (n.StartsWith('.') || n.StartsWith("bin") || n.StartsWith("obj") || n.Contains("node_modules"))
                 return;
 
             items.Add(n);
