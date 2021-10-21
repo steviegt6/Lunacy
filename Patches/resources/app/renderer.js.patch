@@ -83,7 +83,7 @@
                "div",
                { className: "row" },
 -              this.props.blogPosts.map((oe) =>
-+              lunacy.getNewBlogPosts(this.props.blogPosts).map((oe) =>
++              lunacy.getNewBlogPosts([...this.props.blogPosts]).map((oe) =>
                  ke.createElement(BlogPostTile_BlogPostTile, {
                    key: oe.title,
                    blogPost: oe,
