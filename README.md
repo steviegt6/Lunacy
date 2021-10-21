@@ -52,6 +52,8 @@ TODO:
 * remove advertisements (configurable)
 * setting to disable cosmetics (backend implemented, just need a way to change it)
 * win, mac (both vers.), & linux distros + testing (four variations, unfortunately)
+* specify custom JRE
+* st stuff
 
 ## But what about Lunar's Terms of Service? Does it infringe on terms you've agreed to?
 Not at all. Lunar's ToS are seemingly vague on purpose, and the most it tells you to do is to not disable security features, abide by the laws of your country of residency, and not to use it for commerical or promotional use. Lunacy is a purely constructive piece of software that does not infringe on any of this. I am US-based and I believe it is safe to say that the US does not have any laws forbidding me from unpacking `.asar` files. There is no reverse-engineering that needs to be done and minimal code is revealed, much of which is useless and helps absolutely no one unless they're directly contributing to this project.
