@@ -5,11 +5,11 @@ There isn't much to necessarily build on, but there's certainly ways to improve 
 *"modification for lunar client launcher, who knows what it adds"*
 
 ### Project Overview
-Lunacy.ASAR - ASAR archive unpacker
-
-Lunacy - CLI utility tool
-
-Lunacy.Patch - Diffing and patching tool
+| Project | Description |
+|---------|-------------|
+| Lunacy.ASAR | ASAR archive unpacker |
+| Lunacy | CLI task utility tool |
+| Lunacy.Patch | Diffing and patching tool |
 
 
 C# program for JS lol!!!
