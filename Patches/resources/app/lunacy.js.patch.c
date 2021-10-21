@@ -44,3 +44,21 @@ exports.createVersionCard = function(ke) {
     
       return LunacyVersionCard;
 }
+
+exports.getNewBlogPosts = function(blogPosts) {
+    blogPosts.pop();
+    blogPosts.unshift(getReservedBlogPost());
+    return blogPosts;
+}
+
+function getReservedBlogPost() {
+    let blogPost = new Object();
+
+    blogPost.title = "Lunacy Release";
+    blogPost.author = "Uranometry";
+    blogPost.image = "https://cdn.discordapp.com/attachments/660646817612169247/900533605292445806/yyyyy.png";
+    blogPost.excerpt = "Lunacy has released as a sort of alpha/beta! New features are coming, stay tuned. <3"
+    blogPost.link = "https://www.github.com/Steviegt6/Lunacy/"
+
+    return blogPost;
+}

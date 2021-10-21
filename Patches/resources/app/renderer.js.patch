@@ -78,6 +78,15 @@
        null != oe && (at.push("--server"), at.push(oe.ip));
        const st = { programArgs: at, allocatedMemoryMb: ot };
        switch (se) {
+@@ -12742,7 +12752,7 @@
+             ke.createElement(
+               "div",
+               { className: "row" },
+-              this.props.blogPosts.map((oe) =>
++              lunacy.getNewBlogPosts(this.props.blogPosts).map((oe) =>
+                 ke.createElement(BlogPostTile_BlogPostTile, {
+                   key: oe.title,
+                   blogPost: oe,
 @@ -14168,13 +14178,18 @@
            { className: "col-12 card" },
            ke.createElement(
