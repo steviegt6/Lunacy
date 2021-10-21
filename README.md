@@ -41,9 +41,11 @@ Please be sure to keep your diffs as small as possible in order to expose as lit
 Contributing is simple, and PRs don't have a specific format.
 Here's a list of big TO-DOs:
 
-TODO: Use JSNice to clean up unpacked code
-TODO: add features
-TODO: plugins (why?)
-TODO: settings page
-TODO: remove advertisements (configurable)
-TODO: setting to disable cosmetics
+TODO: 
+* Use JSNice to clean up unpacked code (also maybe make prettier formatting more consistent)
+* add features
+* plugins (why?)
+* settings page
+* remove advertisements (configurable)
+* setting to disable cosmetics (backend implemented, just need a way to change it)
+* win, mac (both vers.), & linux distros + testing (four variations, unfortunately)
