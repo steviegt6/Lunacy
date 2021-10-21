@@ -6,8 +6,11 @@ There isn't much to necessarily build on, but there's certainly ways to improve 
 
 ### Project Overview
 Lunacy.ASAR - ASAR archive unpacker
+
 Lunacy - CLI utility tool
+
 Lunacy.Patch - Diffing and patching tool
+
 
 C# program for JS lol!!!
 
