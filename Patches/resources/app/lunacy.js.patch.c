@@ -2,7 +2,7 @@ const {
     clipboard
 } = require("electron");
 
-/* LUNACY IS A LUNAR CLIENT MOD */
+/* LUNACY IS A LUNAR CLIENT LAUNCHER MOD */
 
 let texturesEnabled = false;
 
