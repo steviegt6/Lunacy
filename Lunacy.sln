@@ -13,6 +13,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lunacy.Patch", "Lunacy.Patc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModdingToolkit", "Assatur\Tools\ModdingToolkit\ModdingToolkit.csproj", "{745ECCC4-0B92-4FB7-9E83-62CEA4BD434E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{83498772-2E33-4130-B5FD-612F43275728}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		.gitmodules = .gitmodules
+		NOTE-DEPENDENCIES.txt = NOTE-DEPENDENCIES.txt
+		README.md = README.md
+		setup.bat = setup.bat
+		setup.sh = setup.sh
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
