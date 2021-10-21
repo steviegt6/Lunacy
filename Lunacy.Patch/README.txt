@@ -1,1 +1,1 @@
-﻿Patcher and Different provided and modified from Assaturers/Assatur (https://github.com/Assaturers/Assatur)
+﻿Patcher and Differ are provided and modified from Assaturers/Assatur (https://github.com/Assaturers/Assatur)
