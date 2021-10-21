@@ -1,13 +1,14 @@
 ﻿using System.Threading.Tasks;
 using CliFx;
 
-namespace Lunacy;
-
-public static class Program
+namespace Lunacy
 {
-    public static async Task<int> Main(string[] args) =>
-        await new CliApplicationBuilder()
-            .AddCommandsFromThisAssembly()
-            .Build()
-            .RunAsync(args);
+    public static class Program
+    {
+        public static async Task<int> Main(string[] args) =>
+            await new CliApplicationBuilder()
+                .AddCommandsFromThisAssembly()
+                .Build()
+                .RunAsync(args);
+    }
 }

@@ -1,23 +1,24 @@
 ﻿using System;
 
-namespace Lunacy.ASAR;
-
-public class AsarExtractEvent : EventArgs
+namespace Lunacy.ASAR
 {
-    public AsarFile File { get; }
-
-    public double Index { get; }
-
-    public double Total { get; }
-
-    public double Progress { get; }
-
-    public AsarExtractEvent(AsarFile file, double index, double total)
+    public class AsarExtractEvent : EventArgs
     {
-        File = file;
-        Index = index;
-        Total = total;
+        public AsarFile File { get; }
 
-        Progress = Math.Round(index / total * 100, 2);
+        public double Index { get; }
+
+        public double Total { get; }
+
+        public double Progress { get; }
+
+        public AsarExtractEvent(AsarFile file, double index, double total)
+        {
+            File = file;
+            Index = index;
+            Total = total;
+
+            Progress = Math.Round(index / total * 100, 2);
+        }
     }
 }
