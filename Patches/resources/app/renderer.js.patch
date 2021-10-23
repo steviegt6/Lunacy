@@ -143,13 +143,13 @@
                name: "About",
                onClick: () => {
                  this.setState({ activeTab: "About" }),
-@@ -14505,6 +14540,9 @@
-             });
+@@ -14506,6 +14541,9 @@
              break;
            case "Settings":
-+            _e = ke.createElement(SettingsPage_SettingsPage, null);
+             _e = ke.createElement(SettingsPage_SettingsPage, null);
 +            break;
 +          case "LunacySettings":
-             _e = ke.createElement(SettingsPage_SettingsPage, null);
++            _e = ke.createElement(lunacy.getSettingsPage(ke), null);
              break;
            case "About":
+             _e = ke.createElement(AboutPage_AboutPage, null);
