@@ -129,15 +129,6 @@
                    )
                  )
                )
-@@ -14316,7 +14344,7 @@
-           })()
-             .then((oe) => {
-               this.setState({ metadata: oe }),
--                oe.theme &&
-+       !oe.theme &&
-                   ["halloween"].includes(oe.theme) &&
-                   (document.documentElement.classList.remove("theme-default"),
-                   document.documentElement.classList.add("theme-" + oe.theme));
 @@ -14474,6 +14502,13 @@
                },
              },
