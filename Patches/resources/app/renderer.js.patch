@@ -129,6 +129,15 @@
                    )
                  )
                )
+@@ -14316,7 +14344,7 @@
+           })()
+             .then((oe) => {
+               this.setState({ metadata: oe }),
+-                oe.theme &&
++       !oe.theme &&
+                   ["halloween"].includes(oe.theme) &&
+                   (document.documentElement.classList.remove("theme-default"),
+                   document.documentElement.classList.add("theme-" + oe.theme));
 @@ -14474,6 +14502,13 @@
                },
              },
@@ -149,7 +158,7 @@
              _e = ke.createElement(SettingsPage_SettingsPage, null);
 +            break;
 +          case "LunacySettings":
-+            _e = ke.createElement(lunacy.getSettingsPage(ke), null);
++            _e = ke.createElement(lunacy.getSettingsPage(ke, AfterLaunchActionSetting_AfterLaunchActionSetting, AllocatedMemorySetting_AllocatedMemorySetting, LaunchDirectorySetting_LaunchDirectorySetting, ResolutionSetting_ResolutionSetting, ExperimentalUpdatesSetting_ExperimentalUpdatesSetting), null);
              break;
            case "About":
              _e = ke.createElement(AboutPage_AboutPage, null);
